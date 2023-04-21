@@ -1,5 +1,4 @@
 #include<stdio.h>
-
 int main(void)
 {
 
@@ -16,6 +15,5 @@ int main(void)
 
     while(1){
     *GPIODATA|=(1<<2);//LED_B -->TURN ON    0x02U --->LED_R   0x08U---->LED_G
- 
 }
 }
