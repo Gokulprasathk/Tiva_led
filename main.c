@@ -1,5 +1,14 @@
+
 #include<stdio.h>
-int main(void)
+void delay(long d);
+
+void delay(long d)
+{
+    while(d--);
+}
+
+
+int main(void )
 {
 
 
@@ -9,11 +18,18 @@ int main(void)
     GPIODIR =(unsigned int *)0x40025400U;
     GPIODATA  =(unsigned int *)0x400253FCU;
 
-    *RCGCGPIO=0x20U; //CLOCK FOR PORT F
-    *GPIODIR=0x0EU;  //PF1 PF2 PF3 AS OUTPUT
-    *GPIODEN=0x0EU;  //DIGITALISE THE PORT F
+    *RCGCGPIO=0x20U; 
+    *GPIODIR=0x0EU;  
+    *GPIODEN=0x0EU;  
 
     while(1){
-    *GPIODATA|=(1<<2);//LED_B -->TURN ON    0x02U --->LED_R   0x08U---->LED_G
+    *GPIODATA=0x08U;
+    delay(1000000);
+    *GPIODATA=0x00U;
+    delay(1000000);
+
 }
 }
+
+
+
